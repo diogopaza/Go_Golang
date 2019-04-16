@@ -1,0 +1,4 @@
+"strconv"
+
+unidadeOrigem := os.Args[len(os.Args) - 1 ]
+	valoresOrigem := os.Args[ 1: len(os.Args) - 1 ]
