@@ -36,11 +36,11 @@ func quicksort(numeros []int)[]int{
 
 	if len(numeros) <= 1{
 		
-		fmt.Println("array de uma posição ou zero")
 		return numeros
 	}
 
 	n:= make([]int, len(numeros))
+	result := make([]int, len(numeros))
 	copy(n, numeros)
 
 	var indice_pivo = len(n)/2
@@ -52,6 +52,30 @@ func quicksort(numeros []int)[]int{
 
 	my_array:= make([]int, 5)
 	my_array[0]= 24
-	return n
+	
+	menores, maiores := particionar(n,pivo)
+	
+	result = append(maiores[:])
+
+	return result
+}
+
+func particionar(numeros []int, pivo int)( menores []int, maiores []int){
+
+		for _, n := range numeros{
+			if n < pivo{
+				menores = append(menores, n)
+
+			}else{
+				maiores = append(maiores,n)
+			}
+
+
+		}
+
+		return menores, maiores
+
+
+
 }
 
