@@ -4,12 +4,14 @@ import(
 
 	"fmt"
 	"os"	
+	"strconv"
 
 )
 
 func main(){
 
 	var unidadeDestino string
+	
 	var valoresOrigem = os.Args[1 : len(os.Args)-1]
 	
 	if len(os.Args) < 3 {
@@ -29,18 +31,38 @@ func main(){
 		os.Exit(1)
 	}
 
+	for  i, v:= range valoresOrigem{
 
+		valorOrigem, err := strconv.ParseFloat(v, 64)
+		if err != nil{
+			fmt.Println("O valor %s na posição %d não é um número valido!\n", v, i)
+			os.Exit(1)
+		}
 
+		
+		var valorDestino float64 
+		_ = valorDestino
+		if unidadeOrigem == "celsius"{
+			
+			valorDestino = valorOrigem * 1.8 + 32
+			texto :=fmt.Printf("%[2]f %s = %[2]f %s\n ", valorOrigem, unidadeOrigem, valorDestino, unidadeDestino)
+			fmt.Println(texto)
+		}else{
+			
+			valorDestino = valorOrigem / 1.60934
+			texto :=fmt.Printf("%[2]f %s = %[2]f %s\n ", valorOrigem, unidadeOrigem, valorDestino, unidadeDestino)
+			fmt.Println(texto)
+		}
 
-
-	/*
-	for i, v:= range valoresOrigem{
-
-
+		
+		
 	}
 
+
+
+
 	
-	
+	/*
 	fmt.Println(unidadeOrigem)
 	valorOrigem:= os.Args[len(os.Args)-2]
 	fmt.Println(valorOrigem)
