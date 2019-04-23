@@ -43,6 +43,15 @@ func quicksort(numeros []int)[]int{
 	n:= make([]int, len(numeros))
 	copy(n, numeros)
 
-	
+	var indice_pivo = len(n)/2
+	var pivo= n[indice_pivo]
+	_ = pivo
+	n = append(n[:indice_pivo], n[indice_pivo+1:]...)
+
+
+
+	my_array:= make([]int, 5)
+	my_array[0]= 24
+	return n
 }
 
