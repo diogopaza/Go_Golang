@@ -45,13 +45,13 @@ func main(){
 		if unidadeOrigem == "celsius"{
 			
 			valorDestino = valorOrigem * 1.8 + 32
-			texto :=fmt.Printf("%[2]f %s = %[2]f %s\n ", valorOrigem, unidadeOrigem, valorDestino, unidadeDestino)
-			fmt.Println(texto)
+			fmt.Printf("%.2f %s = %.2f %s\n ", valorOrigem, unidadeOrigem, valorDestino, unidadeDestino)
+			
 		}else{
 			
 			valorDestino = valorOrigem / 1.60934
-			texto :=fmt.Printf("%[2]f %s = %[2]f %s\n ", valorOrigem, unidadeOrigem, valorDestino, unidadeDestino)
-			fmt.Println(texto)
+			fmt.Printf("%.2f %s = %.2f %s\n ", valorOrigem, unidadeOrigem, valorDestino, unidadeDestino)
+			
 		}
 
 		
