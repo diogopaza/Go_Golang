@@ -1,0 +1,8 @@
+os.Args[len(os.Args)]
+
+
+for i, v := range(numeros_entrada){
+
+		fmt.Printf("Numero %s no indice %d \n",v,i)
+
+	} 
