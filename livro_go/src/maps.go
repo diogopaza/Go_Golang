@@ -4,28 +4,34 @@ import(
 
 	"fmt"
 	"os"
-	"strings"
+	//"strings"
 
 )
 
 func main(){
 
 	var palavras = os.Args[1:]
-	fmt.Println(palavras)
+	
 
-
-	estatisticas := colherEstatisticas(palavras)
-
-	imprimir(estatisticas)
-
+	//estatisticas := colherEstatisticas(palavras)
+	//fmt.Println(estatisticas)
+	//imprimir(estatisticas )
+	colherEstatisticas(palavras)
 
 
 }
 
 
-func colherEstatisticas(palavras []string) map[string]int {
+func colherEstatisticas(palavras []string) /*map[string]int*/ {
 
-	estatistias := make(map[string]int)
+	estatisticas := make(map[string]int)
+	//fmt.Println(estatisticas)
+	_ = estatisticas
+
+	for _, palavra := range(palavras){
+		var letraInicial = string(palavra[0])
+		fmt.Println(string( letraInicial ))
+	}
 
 
 }
