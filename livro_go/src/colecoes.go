@@ -36,6 +36,9 @@ func main(){
 	c:= make([]int,10,20)
 	fmt.Println(c, len(c), cap(c))
 
+	
+
+
 
 
 }
