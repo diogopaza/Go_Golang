@@ -23,6 +23,18 @@ func main(){
 
 	}
 
-	fmt.Printf("Saida apoś %d interações", n)
+	fmt.Printf("Saida apoś %d interações\n", n)
+
+
+	var i int
+	externo:
+	for{
+		for i =0; i<10; i++{
+			if i == 5{
+				fmt.Println("indo pro break")
+				break externo
+			}
+		}
+	}
 
 }
