@@ -56,11 +56,32 @@ func main(){
 	s:= []int{11,12,13,16,17,18}
 	v:= []int{14,15}
 	_ = v
-	//s = append(s[:3], append(v, s[3:]))
 	s = append(s[:3], append(v, s[3:]...)...)
 	fmt.Println(s)
+	
+
+	s:=[]int{10,20,30,40,50,60}
+	//final := make([]int,0)
+	//inicio := make([]int,0)
+	//s = s[1:]
+	//s = s[:3]
+	//inicio = s[:2]
+	//final = s[4:]//pega as duas primeiras posições do array
+	s = append(s[:2],s[4:]...)
+	fmt.Println(s)//10 20 50 60 remover 30 40 
 	*/
 
-	
+	numeros := []int{1,2,3,4,5}
+	dobros:= make([]int, len(numeros))
+
+	copy(dobros, numeros)
+
+	for i:= range(dobros){
+		dobros[i] *= 2
+
+	}
+
+	fmt.Println(numeros)
+	fmt.Println(dobros)
 
 }
