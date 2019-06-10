@@ -7,6 +7,7 @@ import(
 	"log"
 	"time"
 	
+	
 )
 
 var(
@@ -27,25 +28,29 @@ type Headers map[string]string
 func init(){
 	porta = 8888
 	urlBase = fmt.Sprintf("http://localhost:%d", porta)
+	fmt.Println(urlBase)
 
 }
 
-func encurtador(w http.ResponseWriter, r * http.Request){
+func encurtador(w http.ResponseWriter, r *http.Request){
 
-	if r.Method != "Get"{
+	if r.Method != "GET"{
 		responderCom(w, http.StatusMethodNotAllowed, Headers{
 			"Allow":"Post",			
 		})
-		w.Write([]byte("entrei"))
-		minhaUrl := extrairUrl(r)
-		fmt.Printf(minhaUrl)
-		return
-	}
+	}	
+		url := make([]byte, r.ContentLength, r.ContentLength )
+		r.Body.Read(url)
+		fmt.Println(url)
+		
+		
+		
+		
 	
 
 }
 
-func redirecionar(w http.ResponseWriter, r * http.Request){
+func redirecionar(w http.ResponseWriter, r *http.Request){
 
 	w.Write([]byte("Estou no redirecionar"))
 
@@ -65,6 +70,8 @@ func responderCom(w http.ResponseWriter,
 
 func extrairUrl(r *http.Request)string{
 
+	fmt.Println("extrair")
+	fmt.Println(r.ContentLength)
 	url := make([]byte, r.ContentLength, r.ContentLength)
 	r.Body.Read(url)
 	return string(url)
@@ -80,7 +87,7 @@ func main(){
 
 	
 		http.HandleFunc("/encurtar", encurtador)
-		http.HandleFunc("/redirecionar", redirecionar)
+		http.HandleFunc("/r", redirecionar)
 		
 		log.Fatal(http.ListenAndServe(
 			fmt.Sprintf(":%d", porta), nil))
