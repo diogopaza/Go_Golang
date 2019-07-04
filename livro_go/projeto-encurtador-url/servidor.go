@@ -39,9 +39,9 @@ func encurtador(w http.ResponseWriter, r *http.Request){
 			"Allow":"Post",			
 		})
 	}	
-		url := make([]byte, r.ContentLength, r.ContentLength )
-		r.Body.Read(url)
-		fmt.Println(url)
+
+	result:= extrairUrl(r)
+	fmt.Println(result)
 		
 		
 		

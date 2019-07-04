@@ -14,7 +14,10 @@ func length(w http.ResponseWriter, r *http.Request){
     	panic(err)
 	}
 	contentlength:=res.ContentLength
-	fmt.Printf("ContentLength:%v",contentlength)
+	fmt.Printf("ContentLength:%v\n",contentlength)
+	url := make([]byte, r.ContentLength, r.ContentLength )
+	r.Body.Read(url)
+	fmt.Println("Body", url)
 
 } 
 
